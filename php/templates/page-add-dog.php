@@ -39,7 +39,7 @@ get_header();
            			); ?></p>
            		</div>
            <?php else : ?>
-           	Olet kirjautunut!		
+           	Olet kirjautunut.		
            <?php endif; ?>
 
        </div>
