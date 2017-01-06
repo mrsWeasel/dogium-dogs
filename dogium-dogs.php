@@ -16,6 +16,7 @@ Domain Path: /languages
 defined( 'ABSPATH' ) or die( 'No direct access allowed.' );
 
 require_once('php/class-dog-post-type.php');
+//require_once('php/register-dog-custom-fields.php');
 require_once('php/class-dog-crud.php');
 require_once('php/class-dog-fields.php');
 require_once('php/class-dogs-tab.php');
