@@ -16,12 +16,8 @@ Domain Path: /languages
 defined( 'ABSPATH' ) or die( 'No direct access allowed.' );
 
 require_once('php/class-dog-post-type.php');
-//require_once('php/register-dog-custom-fields.php');
-require_once('php/class-dog-crud.php');
 require_once('php/class-dog-fields.php');
 require_once('php/class-dogs-tab.php');
+require_once('php/class-dog-forms.php');
 require_once('php/helpers.php');
-
-// Activation hook
-register_activation_hook( __FILE__, array( $dog_crud, 'add_dog_page' ) );
-add_action('template_include', array( $dog_crud, 'use_dog_template' ));
+//require_once('php/class-dog-edit-form.php');
