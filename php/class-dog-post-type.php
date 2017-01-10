@@ -23,7 +23,7 @@ class DogPostType {
 			'not_found' => __('No dogs found', 'dogium-dog'),
 			'not_found_in_trash' => __('No dogs found in the trash', 'dogium-dog'),
 			'parent_item_colon' => '&rarr;',
-			'menu_name' => 'Dogs'
+			'menu_name' => __('Dogs', 'dogium-dog')
 		);
 
 		$args = array(
@@ -32,7 +32,7 @@ class DogPostType {
 			'public' => true,
 			'has_archive' => true,
 			'hierarchical' => true,
-			'rewrite' => array('slug' => __('dog', 'dogium-dog')),
+			'rewrite' => array('slug' => 'dog'),
 			'supports' => array('title', 'editor', 'author', 'thumbnail', 'comments', 'page-attributes'),
 	 	);
 
@@ -49,15 +49,15 @@ class DogPostType {
 				'label' => __('Breed', 'dogium-dog'),
 				'hierarchical' => true,
 				'rewrite' => array(
-					'slug' => __('breed', 'dogium-dog'),
+					'slug' => 'rotu',
 				)
 			)
 		);
 	}
 
 	public function add_term_other() {
-		if (!term_exists('Other', 'dogium_breed')) {
-			wp_insert_term(__('Other', 'dogium-dog'), 'dogium_breed');
+		if (!term_exists('Muu', 'dogium_breed')) {
+			wp_insert_term('Muu', 'dogium_breed');
 		}
 	}
 } // DogPostType
