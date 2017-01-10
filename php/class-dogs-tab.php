@@ -92,10 +92,11 @@ class DogsTab {
 				</div>	
 				</div>
 				<div class="media-object-section main-section">
-					<h3><a href="<?php echo esc_url($link); ?>"><?php echo apply_filters('the_title', $object->post_title); ?></a></h3>
+					<h3><a href="<?php echo esc_url($link); ?>"><?php echo apply_filters('the_title', $object->post_title); ?>
 					<?php if ('' != $subheading ) :?>
-					<h4 class="subheader"><?php echo esc_html($subheading);?></h4>
+					<span class="subheader"><?php echo esc_html($subheading);?></span>
 					<?php endif;?>
+					</a></h3>
 					<?php echo apply_filters('the_content', $object->post_content); ?>
 				</div>	
 					
