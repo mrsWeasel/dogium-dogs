@@ -107,7 +107,7 @@ class DogsTab {
 		endif;
 
 		if ( bp_displayed_user_id() === get_current_user_id() ) {
-			// tähän lomake koiran lisäämiseksi frontendista käsin
+			// tähän painike koiran lisäämiseksi frontendista käsin
 		}
 	}
 } // DogsTab
