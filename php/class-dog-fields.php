@@ -7,12 +7,12 @@ class DogFields {
 	public function __construct() {
 		add_action('post_updated', array($this, 'changed_dog_owner'), 10, 3);
 		add_action('friends_friendship_post_delete', array($this, 'removed_friend'), 10, 2);
-		add_filter('acf/load_value/name=dgm_name', array($this, 'dog_name'), 10, 3);
-		add_filter('acf/load_value/name=dgm_description', array($this, 'dog_description'), 10, 3);
+		add_filter('acf/prepare_field/name=_post_title', array($this, 'dog_name'));
+		add_filter('acf/prepare_field/name=_post_content', array($this, 'dog_description'));
 		add_filter('acf/load_field/name=dgm_owners', array($this, 'add_dog_select_friends'));
 		add_filter('acf/load_field/name=dgm_friends_as_breeders', array($this, 'add_dog_select_friends'));
 		add_filter('acf/load_field/name=dgm_groups_as_breeders', array($this, 'add_groups_as_breeder'));
-		add_filter('acf/fields/taxonomy/query/name=dgm_breeds', array($this, 'dog_terms'), 10, 3);
+		//add_filter('acf/fields/taxonomy/query/name=dgm_breeds', array($this, 'dog_terms'), 10, 3);
 	}
 
 	protected function get_friends() {
@@ -91,25 +91,19 @@ class DogFields {
 		return $field;
 	}
 
-	// For front end posting (title)
-	public function dog_name( $value, $post_id, $field ) {
-	$post_type = get_post($post_id)->post_type;
-	// do not fetch title if we're not on single dog page
-	if ($post_type !== 'dogium_dog') {
-		return $value;
-	} 
-	$value = get_the_title(); 
-    return $value;
+	public function dog_name( $field ) {
+	        // Change the label
+	        $field['label'] = __('Name', 'dogium-dog');  
+	        $field['instructions'] = __('What is the nickname of your dog?', 'dogium-dog');  
+	    
+	    	return $field;    
 	}
-	// For front end posting (content)
-	public function dog_description( $value, $post_id, $field ) {
-	$post_type = get_post($post_id)->post_type;
-	// do not fetch content if we're not on single dog page
-	if ($post_type !== 'dogium_dog') {
-		return $value;
-	}
-    $value = get_the_content(); 
-    return $value;
+
+	public function dog_description( $field ) {
+			$field['label'] = __('Description', 'dogium-dog');
+			$field['description'] = __('Would you like to describe your dog with a few words?', 'dogium-dog');
+		
+		return $field;
 	}
 
 	public function dog_terms( $args, $field, $post_id ) {
@@ -124,6 +118,7 @@ class DogFields {
 	public function changed_dog_owner($post_ID, $post_after, $post_before) {
 		if ( $post_after->post_author !== $post_before->post_author ) {
 				delete_field('dgm_owners', $post_ID);
+				delete_field('dgm_friends_as_breeders', $post_ID);
 		} 
 
 	}
@@ -131,7 +126,7 @@ class DogFields {
 	// Remove shared dogs if friendship ends
 	public function removed_friend($initiator_userid, $friends_userid) {
 		// Posts authored by initiator first
-		$allposts = get_posts(array(
+		$friend_posts = get_posts(array(
 			'author' => $initiator_userid,
 			'post_type' => 'dogium_dog',
 			'posts_per_page' => -1,
@@ -144,8 +139,21 @@ class DogFields {
 			)
 		));
 
-		if ($allposts) {
-			foreach ($allposts as $apost) {
+		$breeder_posts = get_posts(array(
+			'author' => $initiator_userid,
+			'post_type' => 'dogium_dog',
+			'posts_per_page' => -1,
+			'meta_query' => array(
+				array(
+					'key' => 'dgm_friends_as_breeders',
+					'value' => '"' . strval( $friends_userid ) . '"',
+					'compare' => 'LIKE'
+				)		
+			)
+		));
+
+		if ($friend_posts) {
+			foreach ($friend_posts as $apost) {
 				$metadata = get_post_meta($apost->ID, 'dgm_owners', true);
 				foreach ($metadata as $key=>$value) {
 					if ( $value === strval( $friends_userid ) ) {
@@ -153,6 +161,18 @@ class DogFields {
 					}
 				}
 				update_post_meta($apost->ID, 'dgm_owners', $metadata);
+			}
+		}
+
+		if ($breeder_posts) {
+			foreach ($breeder_posts as $bpost) {
+				$metadata = get_post_meta($bpost->ID, 'dgm_friends_as_breeders', true);
+				foreach ($metadata as $key=>$value) {
+					if ( $value === strval( $friends_userid ) ) {
+						unset( $metadata[$key] );
+					}
+				}
+				update_post_meta($bpost->ID, 'dgm_friends_as_breeders', $metadata);
 			}
 		}
 		

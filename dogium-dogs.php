@@ -15,6 +15,12 @@ Domain Path: /languages
 // Do not allow direct access
 defined( 'ABSPATH' ) or die( 'No direct access allowed.' );
 
+function dogium_dog_enqueue_scripts() {
+	wp_enqueue_script( 'dogium-dog-fields', plugin_dir_url(__FILE__) . 'js/fields.js' , array('jquery'), '2.6.1', true );
+}
+
+add_action('wp_enqueue_scripts', 'dogium_dog_enqueue_scripts');
+
 require_once('php/class-dog-post-type.php');
 require_once('php/class-dog-fields.php');
 require_once('php/class-dogs-tab.php');
