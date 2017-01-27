@@ -8,7 +8,6 @@ class DogFields {
 		add_action('post_updated', array($this, 'changed_dog_owner'), 10, 3);
 		add_action('friends_friendship_post_delete', array($this, 'removed_friend'), 10, 2);
 		add_filter('acf/prepare_field/name=_post_title', array($this, 'dog_name'));
-		add_filter('acf/prepare_field/name=_post_content', array($this, 'dog_description'));
 		add_filter('acf/load_field/name=dgm_owners', array($this, 'add_dog_select_friends'));
 		add_filter('acf/load_field/name=dgm_friends_as_breeders', array($this, 'add_dog_select_friends'));
 		add_filter('acf/load_field/name=dgm_groups_as_breeders', array($this, 'add_groups_as_breeder'));
@@ -64,7 +63,7 @@ class DogFields {
 		if (is_array($data)) {
 			foreach($data as $key=>$val) {
 				$choice = $val['id'];
-				$field['choices'][$choice] = $val['name'] . ' | ' . $val['email'];
+				$field['choices'][$choice] = $val['name'];
 			}
 		}
 
@@ -97,13 +96,6 @@ class DogFields {
 	        $field['instructions'] = __('What is the nickname of your dog?', 'dogium-dog');  
 	    
 	    	return $field;    
-	}
-
-	public function dog_description( $field ) {
-			$field['label'] = __('Description', 'dogium-dog');
-			$field['description'] = __('Would you like to describe your dog with a few words?', 'dogium-dog');
-		
-		return $field;
 	}
 
 	public function dog_terms( $args, $field, $post_id ) {

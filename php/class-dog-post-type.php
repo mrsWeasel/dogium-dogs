@@ -31,9 +31,20 @@ class DogPostType {
 			'description' => __('Dogs owned by community members', 'dogium-dog'),
 			'public' => true,
 			'has_archive' => true,
-			'hierarchical' => true,
+			'hierarchical' => false,
 			'rewrite' => array('slug' => 'dog'),
-			'supports' => array('title', 'editor', 'author', 'thumbnail', 'comments', 'page-attributes'),
+			'supports' => array('title', 'author', 'thumbnail', 'comments'),
+			'capability_type' => 'dog',
+			'capabilities' => array(
+		        'edit_post' => 'edit_dog',
+		        'edit_posts' => 'edit_dogs',
+		        'edit_others_posts' => 'edit_others_dogs',
+		        'publish_posts' => 'publish_dogs',
+		        'read_post' => 'read_dog',
+		        'read_private_posts' => 'read_private_dogs',
+		        'delete_post' => 'delete_dog'
+		    ),
+		    'map_meta_cap' => true
 	 	);
 
 	 	register_post_type('dogium_dog', $args);
@@ -56,7 +67,7 @@ class DogPostType {
 	}
 
 	public function add_term_other() {
-		if (!term_exists('Muu', 'dogium_breed')) {
+		if ( !term_exists('Muu', 'dogium_breed') ) {
 			wp_insert_term('Muu', 'dogium_breed');
 		}
 	}

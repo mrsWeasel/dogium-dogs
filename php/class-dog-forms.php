@@ -6,7 +6,7 @@
  */
 	class DogForms {
 		public function __construct() {
-			add_filter( 'get_delete_post_link', array( $this, 'dogium_change_delete_post_link' ), 10, 3 );
+			add_filter( 'get_delete_post_link', array( $this, 'change_delete_post_link' ), 10, 3 );
 			add_action( 'deleted_post', array( $this, 'redirect_after_delete') );
 			add_action( 'admin_post_publish_dog', array( $this, 'publish_post' ) );
 			add_filter('acf/update_value/name=dgm_featured_image', array($this, 'save_featured_image'), 10, 3);
@@ -14,15 +14,15 @@
 		}
 
 		protected $field_groups = array(
-			'name' => 2763,
-			'breed' => 2769,
-			'breed_other' => 2812,
-			'basic' => 2764,
-			'owners' => 2765,
-			'breeders' => 2742,
-			'gallery' => 2768,
-			'comments' => 2776
-			// Todo: Replace with objects
+			'name' => 'group_586e4536b0de8',
+			'breed' => 'group_586e46bd652ce',
+			'breed_other' => 'group_5874c79f11bc1',
+			'basic' => 'group_586e4553c0474',
+			'owners' => 'group_586e45a60e790',
+			'breeders' => 'group_586e18a2caf2e',
+			'description' => 'group_586e45d2e8da0',
+			'gallery' => 'group_586e462e3c0e4',
+			'comments' => 'group_58736638f39eb'
 		);
 
 		public function save_featured_image($value,$post_id,$field) {
@@ -61,7 +61,7 @@
 
 		public function print_delete_confirm() {
 		global $post;
-			if (! current_user_can('edit_post', $post->ID) ) {
+			if (! current_user_can('edit_dog', $post->ID) ) {
 				// bail if current user can not edit this post
 				return;
 			} else {
@@ -129,7 +129,7 @@
 
 		public function print_publish_form() {
 			global $post;
-			if (!current_user_can('edit_post', $post->ID)) {
+			if (!current_user_can('edit_dog', $post->ID)) {
 				return;
 			}
 
@@ -162,7 +162,7 @@
 			// Edit form for dogs
 		public function print_edit_form() {
 			global $post;
-			if (!current_user_can('edit_post', $post->ID) ) {
+			if (!current_user_can('edit_dog', $post->ID) ) {
 				// bail if current user can not edit this post
 				return;
 			} else {
@@ -178,7 +178,7 @@
 					'post_id' => $post->ID,
 					'field_groups' => $field_groups,
 					'post_title' => true,
-					'post_content' => true,
+					'post_content' => false,
 					'form' => true,
 						'form_attributes' => array(
 						'id' => 'post',
@@ -204,7 +204,7 @@
 
 		public function print_new_dog_form() {
 			global $post;
-			if (!current_user_can('publish_posts') ) {
+			if (!current_user_can('publish_dogs') ) {
 				// bail if current user can not publish posts
 				return;
 			} else {

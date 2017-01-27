@@ -9,7 +9,11 @@ class DogsTab {
 	}
 
 	public function add_bp_tabs() {
-		$dogs = $this->get_all_dogs();
+		$user = bp_displayed_user_id();
+		$owned_dogs = $this->get_owned_dogs($user);
+		$shared_dogs = $this->get_shared_dogs($user);
+		$dogs = array_merge($owned_dogs, $shared_dogs);
+
 		$count = count( $dogs );
 		$class = $count > 0 ? 'count' : 'no-count';
 		// Add "dogs" tab to profile
@@ -23,12 +27,17 @@ class DogsTab {
 		) );
 	}
 
-	public function get_owned_dogs( $user ) {
+	public function get_owned_dogs( $user, $display = false ) {
+
+		$status = array('publish');
+		if ($display === true) {
+			array_push($status, 'draft');
+		}
 		// Users own (authored) dogs
 		$own_dogs = get_posts(array(
 			'author' => $user,
 			'post_type' => 'dogium_dog',
-			'post_status' => array('publish', 'draft')
+			'post_status' => $status
 		));
 
 		return $own_dogs;
@@ -53,16 +62,7 @@ class DogsTab {
 		return $shared_dogs;
 	}
 
-	public function get_all_dogs() {
-		$user = bp_displayed_user_id();
 
-		$own_dogs = $this->get_owned_dogs($user);
-		$shared_dogs = $this->get_shared_dogs($user);
-
-		$dogs = array_merge($own_dogs, $shared_dogs);
-		return $dogs;
-
-	}
 
 	public function add_profile_template() {
 		add_action('bp_template_content', array($this, 'display_profile_dogs'));
@@ -80,7 +80,15 @@ class DogsTab {
 			echo $button_markup;
 		}
 
-		$dogs = $this->get_all_dogs();
+		$user = bp_displayed_user_id();
+		// list draft dogs too, if current user should be able to edit them
+		if ( $user === get_current_user_id() || current_user_can('edit_others_dogs') ) {
+			$owned_dogs = $this->get_owned_dogs($user, true);
+		} else {
+			$owned_dogs = $this->get_owned_dogs($user);
+		}
+		$shared_dogs = $this->get_shared_dogs($user);
+		$dogs = array_merge($owned_dogs, $shared_dogs);
 
 		if ( $dogs ) : ?>
 			<?php
@@ -117,7 +125,6 @@ class DogsTab {
 					<?php if ('' != $subheading ) :?>
 					<h4 class="subheader"><?php echo esc_html($subheading);?></h4>
 					<?php endif;?>
-
 					
 					<?php if ($object->post_status == 'draft') :?>
 						<span class="label secondary"><?php esc_html_e('Draft', 'dogium-dog'); ?></span>
