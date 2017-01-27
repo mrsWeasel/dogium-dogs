@@ -134,7 +134,7 @@ class DogsTab {
 					
 				</div>
 
-				<?
+				<?php
 				
 			}
 		endif;
