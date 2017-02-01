@@ -183,7 +183,7 @@ acf_add_local_field_group(array (
 			'default_value' => array (
 			),
 			'ui' => 1,
-			'ajax' => 1,
+			'ajax' => 0,
 			'placeholder' => '',
 			'return_format' => 'value',
 			'key' => 'field_585a380b34283',
@@ -488,7 +488,7 @@ acf_add_local_field_group(array (
 			'default_value' => array (
 			),
 			'ui' => 1,
-			'ajax' => 1,
+			'ajax' => 0,
 			'placeholder' => '',
 			'return_format' => 'value',
 			'key' => 'field_585a37a534281',
