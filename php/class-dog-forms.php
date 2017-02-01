@@ -40,9 +40,9 @@
 			}
 			$field = $_POST['acf']['field_587366523c31c'];
 			$choices = array('open', 'closed');
-			//if (! in_array($choices, $field)) {
-			//	return;
-			//}
+			if (! in_array($choices, $field)) {
+				return;
+			}
 		    $updated_post = array(
 		    	'ID' => $post_id,
 		    	'comment_status' => $field
@@ -99,12 +99,21 @@
 		    return  wp_nonce_url( $delete_link, "$action-post_{$post->ID}" );
 		}
 		public function publish_post($post_id) {
-			//print_r($_POST);
-			// todo: check nonce
-			$current_post = $_POST['postid'];
-			$link = get_permalink($current_post);
+			// This action is not allowed for non logged in users
+			if ( ! is_user_logged_in() ) {
+				return;
+			}
+
+			$post_id = $_POST['post_id'];
+
+			$nonce = $_REQUEST['_publish-dog'];
+			if ( !isset( $nonce ) || ! wp_verify_nonce( $nonce, 'publish-dog_' . $post_id ) ) {
+				die( 'Security check failed.' );
+			}
+
+			$link = get_permalink($post_id);
 			$args = array(
-				'ID' => $current_post,
+				'ID' => $post_id,
 				'post_status' => 'publish'
 			);
 				
@@ -119,7 +128,7 @@
 				return;
 			}
 			$action = esc_url( admin_url('admin-post.php') );
-			$postid = $post->ID;
+			$post_id = $post->ID;
 			//$action = plugin_dir_url(__FILE__) . 'publish-post.php';
 			$html = '';
 			$html .= '<div class="reveal" id="publish-dog-modal" data-reveal>';
@@ -136,12 +145,13 @@
 			$html .= '</button>';
 			$html .= '</div>';
 			$html .= '<input type="hidden" name="action" value="publish_dog">';
-			$html .= "<input type='hidden' name='postid' value='{$postid}'>";
-			$html .= wp_nonce_field('publish_dog_nonce');
+			$html .= "<input type='hidden' name='post_id' value='{$post_id}'>";
+			$html .= wp_nonce_field('publish-dog_' . $post->ID, '_publish-dog');
 			$html .= '</form>';
 			$html .= '</div>';
 			echo $html;
 		}
+
 			// Edit form for dogs
 		public function print_edit_form() {
 			global $post;
