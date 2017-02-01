@@ -9,7 +9,7 @@ class DogFields {
 		add_filter('acf/load_field/name=dgm_owners', array($this, 'add_dog_select_friends'));
 		add_filter('acf/load_field/name=dgm_friends_as_breeders', array($this, 'add_dog_select_friends'));
 		add_filter('acf/load_field/name=dgm_groups_as_breeders', array($this, 'add_groups_as_breeder'));
-		//add_filter('acf/fields/taxonomy/query/name=dgm_breeds', array($this, 'dog_terms'), 10, 3);
+		add_filter('acf/fields/taxonomy/query/name=dgm_breeds', array($this, 'dog_terms'), 10, 3);
 	}
 	protected function get_friends() {
 		global $post;
@@ -43,6 +43,7 @@ class DogFields {
 	}
 	public function add_dog_select_friends($field) {
 		// Do not populate menu on settings page
+		// This is actually not necessary as we don't have a settings page in admin anymore...
 		if (function_exists('get_current_screen')) {
 			$current_screen = get_current_screen();
 			if ($current_screen->post_type == 'acf-field-group') {
@@ -84,11 +85,8 @@ class DogFields {
 	    	return $field;    
 	}
 	public function dog_terms( $args, $field, $post_id ) {
-		$term = get_term_by('name', 'Muu', 'dogium_breed');
-		if ($term) {
-			$id = intval( $term->term_id );
-			$args['exclude'] = $id;
-		}
+		$args['childless'] = true;
+		
 		return $args;
 	}
 	public function changed_dog_owner($post_ID, $post_after, $post_before) {
