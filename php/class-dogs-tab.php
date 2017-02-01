@@ -1,19 +1,15 @@
 <?php
 // Do not allow direct access
 defined( 'ABSPATH' ) or die( 'No direct access allowed.' );
-
 class DogsTab {
-
 	public function __construct() {
 		add_action('bp_actions', array($this, 'add_bp_tabs'));
 	}
-
 	public function add_bp_tabs() {
 		$user = bp_displayed_user_id();
 		$owned_dogs = $this->get_owned_dogs($user);
 		$shared_dogs = $this->get_shared_dogs($user);
 		$dogs = array_merge($owned_dogs, $shared_dogs);
-
 		$count = count( $dogs );
 		$class = $count > 0 ? 'count' : 'no-count';
 		// Add "dogs" tab to profile
@@ -23,12 +19,9 @@ class DogsTab {
 			'position' => 60,
 			'screen_function' => array( $this, 'add_profile_template'),
 			'default_subnav_slug' => 'dogs'
-
 		) );
 	}
-
 	public function get_owned_dogs( $user, $display = false ) {
-
 		$status = array('publish');
 		if ($display === true) {
 			array_push($status, 'draft');
@@ -39,10 +32,8 @@ class DogsTab {
 			'post_type' => 'dogium_dog',
 			'post_status' => $status
 		));
-
 		return $own_dogs;
 	}
-
 	// value not matching
 	public function get_shared_dogs( $user ) {
 		// Dogs assigned by other users
@@ -58,19 +49,13 @@ class DogsTab {
 				
 			)
 		));
-
 		return $shared_dogs;
 	}
-
-
-
 	public function add_profile_template() {
 		add_action('bp_template_content', array($this, 'display_profile_dogs'));
 		bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
 	}
-
 	public function display_profile_dogs() {
-
 		if ( bp_displayed_user_id() === get_current_user_id() ) {
 			$button_markup = '';
 			$button_markup .= sprintf( '<a href="%s" class="button large primary hollow">', get_site_url() . '/lisaa-uusi-koira' );
@@ -79,7 +64,6 @@ class DogsTab {
 			$button_markup .= '</a>';
 			echo $button_markup;
 		}
-
 		$user = bp_displayed_user_id();
 		// list draft dogs too, if current user should be able to edit them
 		if ( $user === get_current_user_id() || current_user_can('edit_others_dogs') ) {
@@ -89,7 +73,6 @@ class DogsTab {
 		}
 		$shared_dogs = $this->get_shared_dogs($user);
 		$dogs = array_merge($owned_dogs, $shared_dogs);
-
 		if ( $dogs ) : ?>
 			<?php
 			foreach ($dogs as $dog) {
@@ -100,7 +83,6 @@ class DogsTab {
 				$link = get_permalink($id);
 				$image = get_the_post_thumbnail($id, 'fp-xsmall');
 				$image_src = get_template_directory_uri() . '/assets/images/paw.jpg';
-
 				?>
 				
 				<div class="media-object">
@@ -141,6 +123,5 @@ class DogsTab {
 		
 	}
 } // DogsTab
-
 // create instance of DogTab class
 new DogsTab;
