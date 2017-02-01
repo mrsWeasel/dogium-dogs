@@ -60,7 +60,7 @@ class DogFields {
 		$data = $this->get_friends();
 
 		// Populate ACF select menu
-		if (is_array($data)) {
+		if (!empty($data)) {
 			foreach($data as $key=>$val) {
 				$choice = $val['id'];
 				$field['choices'][$choice] = $val['name'];
@@ -103,11 +103,16 @@ class DogFields {
 		if ($term) {
 			$id = intval( $term->term_id );
 			$args['exclude'] = $id;
+			$args['childless'] = true;
 		}
 		return $args;
 	}
 
 	public function changed_dog_owner($post_ID, $post_after, $post_before) {
+		// Bail if we're not editing dogium_dog post
+		if ( get_post_type($post_ID) !== 'dogium_dog' ) {
+			return;
+		}
 		if ( $post_after->post_author !== $post_before->post_author ) {
 				delete_field('dgm_owners', $post_ID);
 				delete_field('dgm_friends_as_breeders', $post_ID);
