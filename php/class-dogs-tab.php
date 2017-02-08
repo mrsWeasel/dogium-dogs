@@ -16,7 +16,7 @@ class DogsTab {
 		bp_core_new_nav_item(array(
 			'name' => sprintf(__('Dogs <span class="%s">%s</span>', 'dogium-dog'), $class, number_format_i18n($count)),
 			'slug' => 'dogs',
-			'position' => 60,
+			'position' => 20,
 			'screen_function' => array( $this, 'add_profile_template'),
 			'default_subnav_slug' => 'dogs'
 		) );

@@ -9,7 +9,7 @@ class DogFields {
 		add_filter('acf/load_field/name=dgm_owners', array($this, 'add_dog_select_friends'));
 		add_filter('acf/load_field/name=dgm_friends_as_breeders', array($this, 'add_dog_select_friends'));
 		add_filter('acf/load_field/name=dgm_groups_as_breeders', array($this, 'add_groups_as_breeder'));
-		add_filter('acf/fields/taxonomy/query/name=dgm_breeds', array($this, 'dog_terms'), 10, 3);
+		add_filter('acf/load_field/name=dgm_breeds', array($this, 'dog_terms'));
 	}
 	protected function get_friends() {
 		global $post;
@@ -84,10 +84,28 @@ class DogFields {
 	    
 	    	return $field;    
 	}
-	public function dog_terms( $args, $field, $post_id ) {
-		$args['childless'] = true;
+	public function dog_terms( $field) {
+		$terms = array();
+		$other = get_term_by('name', 'Muu', 'dogium_breed');
+		$terms = get_terms(array(
+			'taxonomy' => 'dogium_breed',
+			'posts_per_page' => -1,
+			'hide_empty' => false,
+			'orderby' => 'name',
+			'exclude' => $other->term_id,
+			'childless' => true
+		));
+		if ($terms) {
+			array_unshift($terms, $other);
+			foreach($terms as $term) {
+
+				$choice = $term->term_id;
+				$field['choices'][$choice] = $term->name;
+			}
+		}
+		return $field;
 		
-		return $args;
+
 	}
 	public function changed_dog_owner($post_ID, $post_after, $post_before) {
 		if ( $post_after->post_author !== $post_before->post_author ) {
