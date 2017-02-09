@@ -29,7 +29,7 @@
 			    	// If term is not 'Muu' there shouldn't be content in 'other' text input
 			    	$term_other_id = get_term_by('name', 'Muu', 'dogium_breed')->term_id;
 			    	$term_other_id = intval( $term_other_id );
-			    	//$other = $_POST['acf']['field_5874c7da9f70d'];
+			    	
 			    	if ( $value !== $term_other_id ) {
 			    		delete_post_meta($post_id, 'dgm_other_what');
 			    	}
@@ -42,7 +42,7 @@
 		public function save_featured_image($value,$post_id,$field) {
 			    if($value != '') {
 	    		//Add the value which is the image ID to the _thumbnail_id meta data for the current post
-	    		add_post_meta($post_id, '_thumbnail_id', $value);
+	    			update_post_meta($post_id, '_thumbnail_id', $value);
     			} else {
     				delete_post_meta($post_id, '_thumbnail_id', $value);
     			}
