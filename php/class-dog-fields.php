@@ -4,6 +4,7 @@ defined( 'ABSPATH' ) or die( 'No direct access allowed.' );
 class DogFields {
 	public function __construct() {
 		add_action('post_updated', array($this, 'changed_dog_owner'), 10, 3);
+		add_action('deleted_user', array($this, 'friend_account_deleted'));
 		add_action('friends_friendship_post_delete', array($this, 'removed_friend'), 10, 2);
 		add_filter('acf/prepare_field/name=_post_title', array($this, 'dog_name'));
 		add_filter('acf/load_field/name=dgm_owners', array($this, 'add_dog_select_friends'));
@@ -61,7 +62,7 @@ class DogFields {
 		}
 		return $field;
 	}
-	public function add_groups_as_breeder($field) {
+	public function add_groups_as_breeder( $field ) {
 		if (function_exists('get_current_screen')) {
 			$current_screen = get_current_screen();
 			if ($current_screen->post_type == 'acf-field-group') {
@@ -112,6 +113,61 @@ class DogFields {
 				delete_field('dgm_owners', $post_ID);
 				delete_field('dgm_friends_as_breeders', $post_ID);
 		} 
+	}
+	// Remove additional owner / breeder metadata from dog if account is deleted
+	public function friend_account_deleted($user_id) {
+		$friends = friends_get_friend_user_ids( $user_id );
+
+		$shared_dogs = get_posts(array(
+			'author__in' => $friends,
+			'post_type' => 'dogium_dog',
+			'posts_per_page' => -1,
+			'meta_query' => array(
+				array(
+					'key' => 'dgm_owners',
+					'value' => '"' . strval( $user_id ) . '"',
+					'compare' => 'LIKE'
+				)
+			)
+		));
+
+		$breeded_dogs = get_posts(array(
+			'author__in' => $friends,
+			'post_type' => 'dogium_dog',
+			'posts_per_page' => -1,
+			'meta_query' => array(
+				array(
+					'key' => 'dgm_owners',
+					'value' => '"' . strval( $user_id ) . '"',
+					'compare' => 'LIKE'
+				)
+			)
+		));
+
+		if ($shared_dogs) {
+			foreach ($shared_dogs as $dog) {
+				$metadata = get_post_meta($dog->ID, 'dgm_owners', true);
+				foreach ($metadata as $key=>$value) {
+					if ( $value === strval( $user_id ) ) {
+						unset( $metadata[$key] );
+					}
+				}
+				update_post_meta($dog->ID, 'dgm_owners', $metadata);
+			}
+		}
+
+		if ($breeded_dogs) {
+			foreach ($breeded_dogs as $bdog) {
+				$metadata = get_post_meta($bdog->ID, 'dgm_owners', true);
+				foreach ($metadata as $key=>$value) {
+					if ( $value === strval( $user_id ) ) {
+						unset( $metadata[$key] );
+					}
+				}
+				update_post_meta($bdog->ID, 'dgm_owners', $metadata);
+			}
+		}
+
 	}
 	// Remove shared dogs if friendship ends
 	public function removed_friend($initiator_userid, $friends_userid) {
