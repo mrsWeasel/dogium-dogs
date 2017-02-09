@@ -10,6 +10,7 @@
 			add_action( 'deleted_post', array( $this, 'redirect_after_delete') );
 			add_action( 'admin_post_publish_dog', array( $this, 'publish_post' ) );
 			add_filter('acf/update_value/name=dgm_featured_image', array($this, 'save_featured_image'), 10, 3);
+			add_filter('acf/update_value/name=dgm_breeds', array($this, 'save_breed'), 10, 3);
 			add_action('acf/save_post', array($this, 'set_commenting_status'), 1 );
 		}
 		protected $field_groups = array(
@@ -23,6 +24,21 @@
 			'gallery' => 'group_586e462e3c0e4',
 			'comments' => 'group_58736638f39eb'
 		);
+		public function save_breed($value,$post_id,$field) {
+			    if($value != '') {
+			    	// If term is not 'Muu' there shouldn't be content in 'other' text input
+			    	$term_other_id = get_term_by('name', 'Muu', 'dogium_breed')->term_id;
+			    	$term_other_id = intval( $term_other_id );
+			    	//$other = $_POST['acf']['field_5874c7da9f70d'];
+			    	if ( $value !== $term_other_id ) {
+			    		delete_post_meta($post_id, 'dgm_other_what');
+			    	}
+	    			// We need to pass an array even though we just have one term to add
+					// Assign new category and wipe any existing one			    
+	    			wp_set_object_terms($post_id, intval( $value ), 'dogium_breed');
+    			}
+    			return $value;
+		}
 		public function save_featured_image($value,$post_id,$field) {
 			    if($value != '') {
 	    		//Add the value which is the image ID to the _thumbnail_id meta data for the current post
