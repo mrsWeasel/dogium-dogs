@@ -37,7 +37,9 @@ class DogsTab {
 	// value not matching
 	public function get_shared_dogs( $user ) {
 		// Dogs assigned by other users
+		$friends = friends_get_friend_user_ids( $user );
 		$shared_dogs = get_posts(array(
+			'author__in' => $friends,
 			'post_type' => 'dogium_dog',
 			'posts_per_page' => -1,
 			'meta_query' => array(
