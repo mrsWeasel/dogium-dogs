@@ -50,13 +50,16 @@
     			return $value;
 		}
 		public function set_commenting_status( $post_id ) {
-		    
+			$post = get_post($post_id);
+		    if ($post->post_type !== 'dogium_dog') {
+		    	return;
+		    }
 			if (empty($_POST['acf'])) {
 				return;
 			}
 			$field = $_POST['acf']['field_587366523c31c'];
 			$choices = array('open', 'closed');
-			if (! in_array($choices, $field)) {
+			if (! in_array($field, $choices)) {
 				return;
 			}
 		    $updated_post = array(
@@ -76,14 +79,14 @@
 				$output = '';
 				$output .= '<div class="reveal" id="delete-dog-modal" data-reveal>';
 				$output .= '<div class="callout alert">';
-				$output .= esc_html("You're about to delete this dog permanently. Are you sure you want to proceed?", 'dogium-dog');
+				$output .= esc_html("You're about to delete this dog permanently. Are you sure you want to proceed?", 'dogium-dogs');
 				$output .= '</div>';
 				$output .= '<div class="button-group">';
 				$output .= '<button class="button secondary" data-close type="button">';
-				$output .= esc_html('Cancel', 'dogium-dog');
+				$output .= esc_html('Cancel', 'dogium-dogs');
 				$output .= '</button>';
 				$output .= "<a class='button alert' type='button' href='{$delete_dog_link}''>";
-				$output .= esc_html('Delete', 'dogium-dog');
+				$output .= esc_html('Delete', 'dogium-dogs');
 				$output .= '</a>';
 				$output .= '</div>';
 				$output .= '</div>';
@@ -149,15 +152,15 @@
 			$html = '';
 			$html .= '<div class="reveal" id="publish-dog-modal" data-reveal>';
 			$html .= '<p>';
-			$html .= esc_html('You are about to publish this dog. After publishing, it will be visible to all users.', 'dogium-dog');
+			$html .= esc_html('You are about to publish this dog. After publishing, it will be visible to all users.', 'dogium-dogs');
 			$html .= '</p>';
 			$html .= "<form action='{$action}' method='post'>";
 			$html .= '<div class="button-group">';
 			$html .= '<button class="button secondary" data-close type="button">';
-			$html .= esc_html('Cancel', 'dogium-dog');
+			$html .= esc_html('Cancel', 'dogium-dogs');
 			$html .= '</button>';
 			$html .= '<button class="button success" type="submit">';
-			$html .= esc_html('Publish', 'dogium-dog');
+			$html .= esc_html('Publish', 'dogium-dogs');
 			$html .= '</button>';
 			$html .= '</div>';
 			$html .= '<input type="hidden" name="action" value="publish_dog">';
@@ -195,8 +198,8 @@
 					'return' => add_query_arg( 'updated', 'true', get_permalink() ),
 					'html_before_fields' => '',
 					'html_after_fields' => '',
-					'submit_value' => __('Save changes', 'dogium'),
-					'updated_message' => __('Dog updated', 'dogium'),
+					'submit_value' => __('Save changes', 'dogium-dogs'),
+					'updated_message' => __('Dog updated', 'dogium-dogs'),
 					'uploader' => 'basic'
 					);
 					echo $html_before;
@@ -233,7 +236,7 @@
 				'return' => '%post_url%',
 				'html_before_fields' => '',
 				'html_after_fields' => '',
-				'submit_value' => __('Create new dog', 'dogium-dog'),
+				'submit_value' => __('Create new dog', 'dogium-dogs'),
 				'updated_message' => '',
 				'uploader' => 'basic'
 				);
