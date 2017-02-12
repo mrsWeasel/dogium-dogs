@@ -14,21 +14,21 @@ class DogPostType {
 			'name' => _x('Dogs', 'post type general name'),
 			'singular_name' => _x('Dog', 'post type singular name'),
 			'add_new' => _x('Add new', 'dog'),
-			'add_new_item' => __('Add new dog', 'dogium-dog'),
-			'edit_item' => __('Edit dog', 'dogium-dog'),
-			'new_item' => __('New dog', 'dogium-dog'),
-			'all_items' => __('All dogs', 'dogium-dog'),
-			'view_item' => __('View dog', 'dogium-dog'),
-			'search_items' => __('Search dogs', 'dogium-dog'),
-			'not_found' => __('No dogs found', 'dogium-dog'),
-			'not_found_in_trash' => __('No dogs found in the trash', 'dogium-dog'),
+			'add_new_item' => __('Add new dog', 'dogium-dogs'),
+			'edit_item' => __('Edit dog', 'dogium-dogs'),
+			'new_item' => __('New dog', 'dogium-dogs'),
+			'all_items' => __('All dogs', 'dogium-dogs'),
+			'view_item' => __('View dog', 'dogium-dogs'),
+			'search_items' => __('Search dogs', 'dogium-dogs'),
+			'not_found' => __('No dogs found', 'dogium-dogs'),
+			'not_found_in_trash' => __('No dogs found in the trash', 'dogium-dogs'),
 			'parent_item_colon' => '&rarr;',
-			'menu_name' => __('Dogs', 'dogium-dog')
+			'menu_name' => __('Dogs', 'dogium-dogs')
 		);
 
 		$args = array(
 			'labels' => $labels,
-			'description' => __('Dogs owned by community members', 'dogium-dog'),
+			'description' => __('Dogs owned by community members', 'dogium-dogs'),
 			'public' => true,
 			'has_archive' => true,
 			'hierarchical' => false,
@@ -57,7 +57,7 @@ class DogPostType {
 			'dogium_breed',
 			'dogium_dog',
 			array(
-				'label' => __('Breed', 'dogium-dog'),
+				'label' => __('Breed', 'dogium-dogs'),
 				'hierarchical' => true,
 				'rewrite' => array(
 					'slug' => 'rotu',

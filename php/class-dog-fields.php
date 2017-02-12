@@ -80,8 +80,8 @@ class DogFields {
 	}
 	public function dog_name( $field ) {
 	        // Change the label
-	        $field['label'] = __('Name', 'dogium-dog');  
-	        $field['instructions'] = __('What is the nickname of your dog?', 'dogium-dog');  
+	        $field['label'] = __('Name', 'dogium-dogs');  
+	        $field['instructions'] = __('What is the nickname of your dog?', 'dogium-dogs');  
 	    
 	    	return $field;    
 	}

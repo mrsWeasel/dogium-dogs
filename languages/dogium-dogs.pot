@@ -1,0 +1,218 @@
+# Copyright (C) 2017 Dogium Dogs
+# This file is distributed under the same license as the Dogium Dogs package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dogium Dogs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: php/class-dog-fields.php:83
+msgid "Name"
+msgstr ""
+
+#: php/class-dog-fields.php:84
+msgid "What is the nickname of your dog?"
+msgstr ""
+
+#: php/class-dog-forms.php:201
+msgid "Save changes"
+msgstr ""
+
+#: php/class-dog-forms.php:202
+msgid "Dog updated"
+msgstr ""
+
+#: php/class-dog-forms.php:239
+msgid "Create new dog"
+msgstr ""
+
+#: php/class-dog-post-type.php:17, php/class-dogs-tab.php:65
+msgid "Add new dog"
+msgstr ""
+
+#: php/class-dog-post-type.php:18
+msgid "Edit dog"
+msgstr ""
+
+#: php/class-dog-post-type.php:19
+msgid "New dog"
+msgstr ""
+
+#: php/class-dog-post-type.php:20
+msgid "All dogs"
+msgstr ""
+
+#: php/class-dog-post-type.php:21
+msgid "View dog"
+msgstr ""
+
+#: php/class-dog-post-type.php:22
+msgid "Search dogs"
+msgstr ""
+
+#: php/class-dog-post-type.php:23
+msgid "No dogs found"
+msgstr ""
+
+#: php/class-dog-post-type.php:24
+msgid "No dogs found in the trash"
+msgstr ""
+
+#: php/class-dog-post-type.php:26
+msgid "Dogs"
+msgstr ""
+
+#: php/class-dog-post-type.php:31
+msgid "Dogs owned by community members"
+msgstr ""
+
+#: php/class-dog-post-type.php:60, php/register-custom-fields.php:96
+msgid "Breed"
+msgstr ""
+
+#: php/class-dogs-tab.php:17
+msgid "Dogs <span class=\"%s\">%s</span>"
+msgstr ""
+
+#: php/class-dogs-tab.php:114
+msgid "Draft"
+msgstr ""
+
+#: php/register-custom-fields.php:7
+msgid "Dogs: Basic info"
+msgstr ""
+
+#: php/register-custom-fields.php:12
+msgid "Female"
+msgstr ""
+
+#: php/register-custom-fields.php:13
+msgid "Male"
+msgstr ""
+
+#: php/register-custom-fields.php:21
+msgid "Gender"
+msgstr ""
+
+#: php/register-custom-fields.php:38
+msgid "Date of Birth"
+msgstr ""
+
+#: php/register-custom-fields.php:82
+msgid "Dogs: Breed"
+msgstr ""
+
+#: php/register-custom-fields.php:142
+msgid "Type the breed of your dog"
+msgstr ""
+
+#: php/register-custom-fields.php:178
+msgid "Dogs: Breeders"
+msgstr ""
+
+#: php/register-custom-fields.php:192
+msgid "Breeders (friends)"
+msgstr ""
+
+#: php/register-custom-fields.php:195
+msgid "Select breeder(s) for your dog among registered users that are your friends."
+msgstr ""
+
+#: php/register-custom-fields.php:216
+msgid "Breeders (groups)"
+msgstr ""
+
+#: php/register-custom-fields.php:219
+msgid "Select breeder(s) for your dog among groups."
+msgstr ""
+
+#: php/register-custom-fields.php:238
+msgid "Add other breeders for your dog. Multiple names need to be separated by line break."
+msgstr ""
+
+#: php/register-custom-fields.php:269
+msgid "Dogs: Commenting"
+msgstr ""
+
+#: php/register-custom-fields.php:274
+msgid "Open"
+msgstr ""
+
+#: php/register-custom-fields.php:275
+msgid "Closed"
+msgstr ""
+
+#: php/register-custom-fields.php:283
+msgid "Commenting"
+msgstr ""
+
+#: php/register-custom-fields.php:286
+msgid "Allow / disallow other users post comments on your dog. Comments are open by default."
+msgstr ""
+
+#: php/register-custom-fields.php:317
+msgid "Dogs: Description"
+msgstr ""
+
+#: php/register-custom-fields.php:326
+msgid "Description"
+msgstr ""
+
+#: php/register-custom-fields.php:329
+msgid "Write a short description of your dog."
+msgstr ""
+
+#: php/register-custom-fields.php:360
+msgid "Dogs: Images"
+msgstr ""
+
+#: php/register-custom-fields.php:374
+msgid "Featured image"
+msgstr ""
+
+#: php/register-custom-fields.php:377
+msgid "This is the main image of your dog. It will also show on your dogs listing page (and on other, site wide listing pages.)"
+msgstr ""
+
+#: php/register-custom-fields.php:399
+msgid "Image gallery"
+msgstr ""
+
+#: php/register-custom-fields.php:402
+msgid "Add additional photos of your dog. You can upload up to 10 images."
+msgstr ""
+
+#: php/register-custom-fields.php:433
+msgid "Dogs: Name"
+msgstr ""
+
+#: php/register-custom-fields.php:442
+msgid "Official Name"
+msgstr ""
+
+#: php/register-custom-fields.php:483
+msgid "Dogs: Owners"
+msgstr ""
+
+#: php/register-custom-fields.php:497
+msgid "Owners"
+msgstr ""
+
+#: php/register-custom-fields.php:500
+msgid "Select additional owners for your dog. Additional owners need to be registered users and your friends."
+msgstr ""
+
+#: php/register-custom-fields.php:516
+msgid "Other owners"
+msgstr ""
+
+#: php/register-custom-fields.php:519
+msgid "Additional owners that are not registered users / your friends. You can add multiple names separated by line break."
+msgstr ""

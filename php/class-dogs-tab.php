@@ -14,7 +14,7 @@ class DogsTab {
 		$class = $count > 0 ? 'count' : 'no-count';
 		// Add "dogs" tab to profile
 		bp_core_new_nav_item(array(
-			'name' => sprintf(__('Dogs <span class="%s">%s</span>', 'dogium-dog'), $class, number_format_i18n($count)),
+			'name' => sprintf(__('Dogs <span class="%s">%s</span>', 'dogium-dogs'), $class, number_format_i18n($count)),
 			'slug' => 'dogs',
 			'position' => 20,
 			'screen_function' => array( $this, 'add_profile_template'),
@@ -62,7 +62,7 @@ class DogsTab {
 			$button_markup = '';
 			$button_markup .= sprintf( '<a href="%s" class="button large primary hollow">', get_site_url() . '/lisaa-uusi-koira' );
 			$button_markup .= '<i class="fa fa-plus" aria-hidden="true"></i> ';
-			$button_markup .= __('Add new dog', 'dogium-dog');
+			$button_markup .= __('Add new dog', 'dogium-dogs');
 			$button_markup .= '</a>';
 			echo $button_markup;
 		}
@@ -111,7 +111,7 @@ class DogsTab {
 					<?php endif;?>
 					
 					<?php if ($object->post_status == 'draft') :?>
-						<span class="label secondary"><?php esc_html_e('Draft', 'dogium-dog'); ?></span>
+						<span class="label secondary"><?php esc_html_e('Draft', 'dogium-dogs'); ?></span>
 					<?php endif; ?>
 					<?php echo apply_filters('the_content', $object->post_content); ?>
 				</div>	

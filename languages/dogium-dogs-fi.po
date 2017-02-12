@@ -1,0 +1,273 @@
+# Copyright (C) 2017 Dogium Dogs
+# This file is distributed under the same license as the Dogium Dogs package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dogium Dogs\n"
+"POT-Creation-Date: 2017-02-12 21:22+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: php/class-dog-fields.php:83
+msgid "Name"
+msgstr "Nimi"
+
+#: php/class-dog-fields.php:84
+msgid "What is the nickname of your dog?"
+msgstr "Mikä on koirasi lempinimi?"
+
+#: php/class-dog-forms.php:201
+msgid "Save changes"
+msgstr "Tallenna muutokset"
+
+#: php/class-dog-forms.php:202
+msgid "Dog updated"
+msgstr "Koira päivitetty"
+
+#: php/class-dog-forms.php:239
+msgid "Create new dog"
+msgstr "Luo uusi koira"
+
+#: php/class-dog-post-type.php:14
+msgctxt "post type general name"
+msgid "Dogs"
+msgstr "Koiria"
+
+#: php/class-dog-post-type.php:15
+msgctxt "post type singular name"
+msgid "Dog"
+msgstr "koira"
+
+#: php/class-dog-post-type.php:16
+msgctxt "dog"
+msgid "Add new"
+msgstr "Lisää uusi"
+
+#: php/class-dog-post-type.php:17 php/class-dogs-tab.php:65
+msgid "Add new dog"
+msgstr "Lisää uusi koira"
+
+#: php/class-dog-post-type.php:18
+msgid "Edit dog"
+msgstr "Muokkaa koiraa"
+
+#: php/class-dog-post-type.php:19
+msgid "New dog"
+msgstr "Uusi koira"
+
+#: php/class-dog-post-type.php:20
+msgid "All dogs"
+msgstr "Kaikki koirat"
+
+#: php/class-dog-post-type.php:21
+msgid "View dog"
+msgstr "Näytä koira"
+
+#: php/class-dog-post-type.php:22
+msgid "Search dogs"
+msgstr "Etsi koiria"
+
+#: php/class-dog-post-type.php:23
+msgid "No dogs found"
+msgstr "Koiria ei löytynyt"
+
+#: php/class-dog-post-type.php:24
+msgid "No dogs found in the trash"
+msgstr "Koiria ei löytynyt roskakorista"
+
+#: php/class-dog-post-type.php:26
+msgid "Dogs"
+msgstr "Koirat"
+
+#: php/class-dog-post-type.php:31
+msgid "Dogs owned by community members"
+msgstr "Yhteisön jäsenten omistamat koirat"
+
+#: php/class-dog-post-type.php:60 php/register-custom-fields.php:96
+msgid "Breed"
+msgstr "Rotu"
+
+#: php/class-dogs-tab.php:17
+#, php-format
+msgid "Dogs <span class=\"%s\">%s</span>"
+msgstr "Koirat <span class=\"%s\">%s</span>"
+
+#: php/class-dogs-tab.php:114
+msgid "Draft"
+msgstr "Luonnos"
+
+#: php/register-custom-fields.php:7
+msgid "Dogs: Basic info"
+msgstr "Koirat: perustietoa"
+
+#: php/register-custom-fields.php:12
+msgid "Female"
+msgstr "Narttu"
+
+#: php/register-custom-fields.php:13
+msgid "Male"
+msgstr "Uros"
+
+#: php/register-custom-fields.php:21
+msgid "Gender"
+msgstr "Sukupuoli"
+
+#: php/register-custom-fields.php:38
+msgid "Date of Birth"
+msgstr "Syntymäaika"
+
+#: php/register-custom-fields.php:82
+msgid "Dogs: Breed"
+msgstr "Koirat: rotu"
+
+#: php/register-custom-fields.php:130
+msgid "Dogs: Breed (other)"
+msgstr "Koirat: Rotu (muu)"
+
+#: php/register-custom-fields.php:139
+msgid "Other (what?)"
+msgstr "Muu (mikä?)"
+
+#: php/register-custom-fields.php:142
+msgid "Type the breed of your dog"
+msgstr "Kirjoita tähän koirasi rotu"
+
+#: php/register-custom-fields.php:178
+msgid "Dogs: Breeders"
+msgstr "Koirat: kasvattajat"
+
+#: php/register-custom-fields.php:192
+msgid "Breeders (friends)"
+msgstr "Kasvattajat (kaveri)"
+
+#: php/register-custom-fields.php:195
+msgid ""
+"Select breeder(s) for your dog among registered users that are your friends."
+msgstr ""
+"Valitse koirallesi kasvattaja rekisteröityneistä käyttäjistä, jotka ovat "
+"kavereitasi."
+
+#: php/register-custom-fields.php:216
+msgid "Breeders (groups)"
+msgstr "Kasvattajat (ryhmät)"
+
+#: php/register-custom-fields.php:219
+msgid "Select breeder(s) for your dog among groups."
+msgstr "Valitse koirallesi kasvattaja ryhmien joukosta"
+
+#: php/register-custom-fields.php:238
+msgid ""
+"Add other breeders for your dog. Multiple names need to be separated by line "
+"break."
+msgstr ""
+"Lisää muita kasvattajia koirallesi. Jos lisäät enemmän kuin yhden nimen, ne "
+"täytyy erottaa toisistaan rivinvaihdolla."
+
+#: php/register-custom-fields.php:269
+msgid "Dogs: Commenting"
+msgstr "Koirat: kommentointi"
+
+#: php/register-custom-fields.php:274
+msgid "Open"
+msgstr "Avoinna"
+
+#: php/register-custom-fields.php:275
+msgid "Closed"
+msgstr "Suljettu"
+
+#: php/register-custom-fields.php:283
+msgid "Commenting"
+msgstr "Kommentointi"
+
+#: php/register-custom-fields.php:286
+msgid ""
+"Allow / disallow other users post comments on your dog. Comments are open by "
+"default."
+msgstr ""
+"Salli / estä muiden käyttäjien kommentoida koiraasi. Kommentit ovat "
+"oletuksena avoinna."
+
+#: php/register-custom-fields.php:317
+msgid "Dogs: Description"
+msgstr "Koirat: kuvaus"
+
+#: php/register-custom-fields.php:326
+msgid "Description"
+msgstr "Kuvaus"
+
+#: php/register-custom-fields.php:329
+msgid "Write a short description of your dog."
+msgstr "Kirjoita lyhyt kuvaus koirastasi."
+
+#: php/register-custom-fields.php:360
+msgid "Dogs: Images"
+msgstr "Koirat: kuvat"
+
+#: php/register-custom-fields.php:374
+msgid "Featured image"
+msgstr "Pääkuva"
+
+#: php/register-custom-fields.php:377
+msgid ""
+"This is the main image of your dog. It will also show on your dogs listing "
+"page (and on other, site wide listing pages.)"
+msgstr ""
+"Tämä on pääkuva koirastasi. Kuva näkyy sivulla, johon on koottu kaikki "
+"omistamasi koirat (ja muissa sivustonlaajuisissa listauksissa.)"
+
+#: php/register-custom-fields.php:399
+msgid "Image gallery"
+msgstr "Kuvagalleria"
+
+#: php/register-custom-fields.php:402
+msgid "Add additional photos of your dog. You can upload up to 10 images."
+msgstr "Lisää lisäkuvia koirastasi. Voit tallentaa maksimissaan 10 kuvaa."
+
+#: php/register-custom-fields.php:433
+msgid "Dogs: Name"
+msgstr "Koirat: nimi"
+
+#: php/register-custom-fields.php:442
+msgid "Official Name"
+msgstr "Virallinen nimi"
+
+#: php/register-custom-fields.php:483
+msgid "Dogs: Owners"
+msgstr "Koirat: omistajat"
+
+#: php/register-custom-fields.php:497
+msgid "Owners"
+msgstr "Omistajat"
+
+#: php/register-custom-fields.php:500
+msgid ""
+"Select additional owners for your dog. Additional owners need to be "
+"registered users and your friends."
+msgstr ""
+"Lisää muita omistajia koirallesi. Omistajien täytyy olla rekisteröityneitä "
+"käyttäjiä ja sinun kavereitasi."
+
+#: php/register-custom-fields.php:516
+msgid "Other owners"
+msgstr "Muut omistajat"
+
+#: php/register-custom-fields.php:519
+msgid ""
+"Additional owners that are not registered users / your friends. You can add "
+"multiple names separated by line break."
+msgstr ""
+"Muut omistajat, jotka eivät ole rekisteröityneitä käyttäjiä tai kavereitasi. "
+"Voit lisätä useita nimiä, jos erotat ne toisistaan rivinvaihdolla."
