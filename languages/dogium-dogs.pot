@@ -21,6 +21,18 @@ msgstr ""
 msgid "What is the nickname of your dog?"
 msgstr ""
 
+#: php/class-dog-forms.php:82
+msgid "You're about to delete this dog permanently. Are you sure you want to proceed?"
+msgstr ""
+
+#: php/class-dog-forms.php:86
+msgid "Cancel"
+msgstr ""
+
+#: php/class-dog-forms.php:89
+msgid "Delete"
+msgstr ""
+
 #: php/class-dog-forms.php:201
 msgid "Save changes"
 msgstr ""
@@ -131,6 +143,10 @@ msgstr ""
 
 #: php/register-custom-fields.php:219
 msgid "Select breeder(s) for your dog among groups."
+msgstr ""
+
+#: php/register-custom-fields.php:235
+msgid "Other breeders"
 msgstr ""
 
 #: php/register-custom-fields.php:238

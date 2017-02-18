@@ -152,15 +152,15 @@
 			$html = '';
 			$html .= '<div class="reveal" id="publish-dog-modal" data-reveal>';
 			$html .= '<p>';
-			$html .= esc_html('You are about to publish this dog. After publishing, it will be visible to all users.', 'dogium-dogs');
+			$html .= esc_html__('You are about to publish this dog. After publishing, it will be visible to all users.', 'dogium-dogs');
 			$html .= '</p>';
 			$html .= "<form action='{$action}' method='post'>";
 			$html .= '<div class="button-group">';
 			$html .= '<button class="button secondary" data-close type="button">';
-			$html .= esc_html('Cancel', 'dogium-dogs');
+			$html .= esc_html__('Cancel', 'dogium-dogs');
 			$html .= '</button>';
 			$html .= '<button class="button success" type="submit">';
-			$html .= esc_html('Publish', 'dogium-dogs');
+			$html .= esc_html__('Publish', 'dogium-dogs');
 			$html .= '</button>';
 			$html .= '</div>';
 			$html .= '<input type="hidden" name="action" value="publish_dog">';

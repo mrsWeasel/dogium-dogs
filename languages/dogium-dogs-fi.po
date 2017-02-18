@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Dogium Dogs\n"
-"POT-Creation-Date: 2017-02-12 21:22+0200\n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -29,6 +29,20 @@ msgstr "Nimi"
 msgid "What is the nickname of your dog?"
 msgstr "Mikä on koirasi lempinimi?"
 
+#: php/class-dog-forms.php:82
+msgid ""
+"You're about to delete this dog permanently. Are you sure you want to "
+"proceed?"
+msgstr "Koirasi näkyy julkaisun jälkeen kaikille. Tahdotko jatkaa?"
+
+#: php/class-dog-forms.php:86
+msgid "Cancel"
+msgstr "Peruuta"
+
+#: php/class-dog-forms.php:89
+msgid "Delete"
+msgstr "Poista"
+
 #: php/class-dog-forms.php:201
 msgid "Save changes"
 msgstr "Tallenna muutokset"
@@ -41,22 +55,7 @@ msgstr "Koira päivitetty"
 msgid "Create new dog"
 msgstr "Luo uusi koira"
 
-#: php/class-dog-post-type.php:14
-msgctxt "post type general name"
-msgid "Dogs"
-msgstr "Koiria"
-
-#: php/class-dog-post-type.php:15
-msgctxt "post type singular name"
-msgid "Dog"
-msgstr "koira"
-
-#: php/class-dog-post-type.php:16
-msgctxt "dog"
-msgid "Add new"
-msgstr "Lisää uusi"
-
-#: php/class-dog-post-type.php:17 php/class-dogs-tab.php:65
+#: php/class-dog-post-type.php:17, php/class-dogs-tab.php:65
 msgid "Add new dog"
 msgstr "Lisää uusi koira"
 
@@ -96,12 +95,11 @@ msgstr "Koirat"
 msgid "Dogs owned by community members"
 msgstr "Yhteisön jäsenten omistamat koirat"
 
-#: php/class-dog-post-type.php:60 php/register-custom-fields.php:96
+#: php/class-dog-post-type.php:60, php/register-custom-fields.php:96
 msgid "Breed"
 msgstr "Rotu"
 
 #: php/class-dogs-tab.php:17
-#, php-format
 msgid "Dogs <span class=\"%s\">%s</span>"
 msgstr "Koirat <span class=\"%s\">%s</span>"
 
@@ -133,14 +131,6 @@ msgstr "Syntymäaika"
 msgid "Dogs: Breed"
 msgstr "Koirat: rotu"
 
-#: php/register-custom-fields.php:130
-msgid "Dogs: Breed (other)"
-msgstr "Koirat: Rotu (muu)"
-
-#: php/register-custom-fields.php:139
-msgid "Other (what?)"
-msgstr "Muu (mikä?)"
-
 #: php/register-custom-fields.php:142
 msgid "Type the breed of your dog"
 msgstr "Kirjoita tähän koirasi rotu"
@@ -167,6 +157,10 @@ msgstr "Kasvattajat (ryhmät)"
 #: php/register-custom-fields.php:219
 msgid "Select breeder(s) for your dog among groups."
 msgstr "Valitse koirallesi kasvattaja ryhmien joukosta"
+
+#: php/register-custom-fields.php:235
+msgid "Other breeders"
+msgstr "Muut kasvattajat"
 
 #: php/register-custom-fields.php:238
 msgid ""
@@ -271,3 +265,21 @@ msgid ""
 msgstr ""
 "Muut omistajat, jotka eivät ole rekisteröityneitä käyttäjiä tai kavereitasi. "
 "Voit lisätä useita nimiä, jos erotat ne toisistaan rivinvaihdolla."
+
+#~ msgctxt "post type general name"
+#~ msgid "Dogs"
+#~ msgstr "Koiria"
+
+#~ msgctxt "post type singular name"
+#~ msgid "Dog"
+#~ msgstr "koira"
+
+#~ msgctxt "dog"
+#~ msgid "Add new"
+#~ msgstr "Lisää uusi"
+
+#~ msgid "Dogs: Breed (other)"
+#~ msgstr "Koirat: Rotu (muu)"
+
+#~ msgid "Other (what?)"
+#~ msgstr "Muu (mikä?)"
