@@ -79,14 +79,14 @@
 				$output = '';
 				$output .= '<div class="reveal" id="delete-dog-modal" data-reveal>';
 				$output .= '<div class="callout alert">';
-				$output .= esc_html("You're about to delete this dog permanently. Are you sure you want to proceed?", 'dogium-dogs');
+				$output .= esc_html__("You're about to delete this dog permanently. Are you sure you want to proceed?", 'dogium-dogs');
 				$output .= '</div>';
 				$output .= '<div class="button-group">';
 				$output .= '<button class="button secondary" data-close type="button">';
-				$output .= esc_html('Cancel', 'dogium-dogs');
+				$output .= esc_html__('Cancel', 'dogium-dogs');
 				$output .= '</button>';
 				$output .= "<a class='button alert' type='button' href='{$delete_dog_link}''>";
-				$output .= esc_html('Delete', 'dogium-dogs');
+				$output .= esc_html__('Delete', 'dogium-dogs');
 				$output .= '</a>';
 				$output .= '</div>';
 				$output .= '</div>';
