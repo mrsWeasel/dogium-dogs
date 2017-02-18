@@ -25,12 +25,20 @@ msgstr ""
 msgid "You're about to delete this dog permanently. Are you sure you want to proceed?"
 msgstr ""
 
-#: php/class-dog-forms.php:86
+#: php/class-dog-forms.php:86, php/class-dog-forms.php:160
 msgid "Cancel"
 msgstr ""
 
 #: php/class-dog-forms.php:89
 msgid "Delete"
+msgstr ""
+
+#: php/class-dog-forms.php:155
+msgid "You are about to publish this dog. After publishing, it will be visible to all users."
+msgstr ""
+
+#: php/class-dog-forms.php:163
+msgid "Publish"
 msgstr ""
 
 #: php/class-dog-forms.php:201

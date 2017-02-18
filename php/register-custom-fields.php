@@ -136,7 +136,7 @@ acf_add_local_field_group(array (
 			'prepend' => '',
 			'append' => '',
 			'key' => 'field_5874c7da9f70d',
-			'label' => __('Other (what?)', 'dogium'),
+			'label' => __('Other (what?)', 'dogium-dogs'),
 			'name' => 'dgm_other_what',
 			'type' => 'text',
 			'instructions' => __('Type the breed of your dog', 'dogium-dogs'),

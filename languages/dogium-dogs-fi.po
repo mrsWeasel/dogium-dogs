@@ -33,15 +33,25 @@ msgstr "Mikä on koirasi lempinimi?"
 msgid ""
 "You're about to delete this dog permanently. Are you sure you want to "
 "proceed?"
-msgstr "Koirasi näkyy julkaisun jälkeen kaikille. Tahdotko jatkaa?"
+msgstr "Olet poistamassa koiraasi pysyvästi. Haluatko varmasti tehdä tämän?"
 
-#: php/class-dog-forms.php:86
+#: php/class-dog-forms.php:86, php/class-dog-forms.php:160
 msgid "Cancel"
 msgstr "Peruuta"
 
 #: php/class-dog-forms.php:89
 msgid "Delete"
 msgstr "Poista"
+
+#: php/class-dog-forms.php:155
+msgid ""
+"You are about to publish this dog. After publishing, it will be visible to "
+"all users."
+msgstr "Koirasi näkyy julkaisun jälkeen kaikille."
+
+#: php/class-dog-forms.php:163
+msgid "Publish"
+msgstr "Julkaise"
 
 #: php/class-dog-forms.php:201
 msgid "Save changes"
