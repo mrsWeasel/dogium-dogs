@@ -141,6 +141,14 @@ msgstr "Syntymäaika"
 msgid "Dogs: Breed"
 msgstr "Koirat: rotu"
 
+#: php/register-custom-fields.php:99
+msgid "Please select breed of your dog."
+msgstr "Valitse koirallesi rotu."
+
+#: php/register-custom-fields.php:139
+msgid "Other (what?)"
+msgstr "Muu (mikä?)"
+
 #: php/register-custom-fields.php:142
 msgid "Type the breed of your dog"
 msgstr "Kirjoita tähän koirasi rotu"
@@ -290,6 +298,3 @@ msgstr ""
 
 #~ msgid "Dogs: Breed (other)"
 #~ msgstr "Koirat: Rotu (muu)"
-
-#~ msgid "Other (what?)"
-#~ msgstr "Muu (mikä?)"

@@ -129,6 +129,14 @@ msgstr ""
 msgid "Dogs: Breed"
 msgstr ""
 
+#: php/register-custom-fields.php:99
+msgid "Please select breed of your dog."
+msgstr ""
+
+#: php/register-custom-fields.php:139
+msgid "Other (what?)"
+msgstr ""
+
 #: php/register-custom-fields.php:142
 msgid "Type the breed of your dog"
 msgstr ""

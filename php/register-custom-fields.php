@@ -96,7 +96,7 @@ acf_add_local_field_group(array (
 			'label' => __('Breed', 'dogium-dogs'),
 			'name' => 'dgm_breeds',
 			'type' => 'select',
-			'instructions' => 'Please select breed of your dog.',
+			'instructions' => __('Please select breed of your dog.', 'dogium-dogs'),
 			'required' => 1,
 			'conditional_logic' => 0,
 			'wrapper' => array (
