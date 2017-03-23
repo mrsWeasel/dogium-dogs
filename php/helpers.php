@@ -10,7 +10,6 @@ function dogium_get_dog_terms($id) {
 			foreach ($terms as $term) {
 				if ($term->name === 'Muu') {
 					return true;
-					break 2;
 				}
 			}
 		}
